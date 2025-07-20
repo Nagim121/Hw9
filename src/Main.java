@@ -32,12 +32,13 @@ public class Main {
 
         System.out.println("Задача 3");
         int populationY = 12000000;
-        int mortalityRate = 8 * 1000;
-        int birthRate = 17 * 1000;
-        int populationGrowth = birthRate - mortalityRate;
-        for (i = 1; i <= 10; i++) {
-            populationY = populationY + populationGrowth;
-
+        int mortalityRate = 8;
+        int birthRate = 17;
+        int years = 10;
+        for (i = 1; i <= years; i++) {
+            int newBiths = populationY*birthRate/1000;
+            int deaths = populationY*mortalityRate/1000;
+            populationY = populationY+newBiths-deaths;
             System.out.println("Год " + i + " численность населения составляет " + populationY);
         }
         System.out.println("Задача 4");
@@ -71,8 +72,8 @@ public class Main {
         int periodOnMounth = periogYear * 12;
 
         for (; i <= periodOnMounth; i++) {
-            total3 = total3 + (total3 / 100 * 7);
             total3 = total3 + depositAmount3;
+            total3 = total3 + (total3 / 100 * 7);
             if (i % 6 == 0) {
                 System.out.println("Месяц " + i + " накоплено " + total3 + " рублей");
             }
